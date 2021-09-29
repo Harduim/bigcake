@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bolão Esporitvo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logo_img.png') }}" />
+</head>
+
+<body style="background-size: cover; height: 100vh; background-repeat: no-repeat; background-image: url({{ url_for('static', filename='login_background.png' ) }});">
+    <div class="container">
+        <div class="container-lg position-absolute top-50">
+            <div class="row">
+                <div class="card col-md-4" style="margin-left: 1.5rem; opacity: 90%; background-color: #fafcfe">
+                    <div class="card-body">
+                        <a href="{{ auth_url }}" class="card-link"><h5 class="card-title">Login Bolão Esportivo</h5></a>
+                        <h6 class="card-subtitle mb-2 text-muted">Clique em "Fazer login" para fazer login com sua conta corporativa Microsoft.</h6>
+                        <a href="{{ auth_url }}" class="card-link">Fazer Login</a>
+                    </div>
+                </div>
+                <div class="col-md-6">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

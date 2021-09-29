@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container my-5">
+    &nbsp;
+</div>
+<div class="container my-5">
+    <br>
+    <h1 class="mt-4 mb-3">Resultados parciais</h1>
+    <h2 class="text-secondary">Resultados até a última apuração</h2>
+    <div class="mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Pontuação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users: %}
+                <tr>
+                    <td>{{ user.usuario_nome}}</td>
+                    <td>{{ user.total_pontos}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-4">
+        <a href="{{ url_for('static', filename='relatorio_apuracao.txt') }}">
+            <h2>Relatorio de apuração</h2>
+        </a>
+    </div>
+</div>
+
+{% endblock content %}

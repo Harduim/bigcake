@@ -1,0 +1,26 @@
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+    function submitForm(event, modalidade_id) {
+        event.preventDefault()
+        $.ajax({
+            type: 'POST',
+            url: [location.protocol, '//', location.host, location.pathname].join(''),
+            data: {
+                modalidade_id: modalidade_id,
+                pais_ouro: event.target.elements.pais_ouro.value,
+                pais_prata: event.target.elements.pais_prata.value,
+                pais_bronze: event.target.elements.pais_bronze.value
+            },
+            success: function () {
+                var divId = "modalidade_" + modalidade_id
+                var div = document.getElementById(divId);
+                div.classList.remove("border-success");
+                div.classList.add("bg-primary");
+            }
+        })
+    }
+
+</script>

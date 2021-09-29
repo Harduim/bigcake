@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+    mysql:
+        image: mysql:5.7
+        container_name: "${MYSQL_CONTAINER_NAME}"
+        restart: unless-stopped
+        command: --explicit_defaults_for_timestamp=1
+        environment:
+            MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+            MYSQL_DATABASE: "${MYSQL_DATABASE}"
+            MYSQL_USER: "${MYSQL_USER}"
+            MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+        # Host:Container
+        ports:
+            - "127.0.0.1:${MYSQL_PORT}:3306"

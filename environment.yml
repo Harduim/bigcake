@@ -1,0 +1,19 @@
+name: bigcake
+channels:
+  - defaults
+dependencies:
+  - sqlalchemy
+  - pymysql
+  - lxml
+  - gunicorn
+  - pip
+  - pip:
+    - "Flask>=2.0.0"
+    - "Flask-Pydantic"
+    - "python-dotenv"
+    - "flask-session~=0.3.2"
+    - "requests"
+    - "msal>=1.7"
+    - beautifulsoup4
+    - unidecode
+    - flask-wtf

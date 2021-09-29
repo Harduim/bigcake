@@ -1,0 +1,9 @@
+[Unit]
+Description=bigcake socket
+
+[Socket]
+ListenStream=/run/bigcake.sock
+SocketUser=www-data
+
+[Install]
+WantedBy=sockets.target

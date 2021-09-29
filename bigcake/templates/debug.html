@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-lg">
+    <h5>
+        {{ user }}
+    </h5>
+    <h5>
+        {{ dir_user }}
+    </h5>
+</div>
+
+<!-- {% if config.get("B2C_RESET_PASSWORD_AUTHORITY") %}
+<li><a href='{{_build_auth_code_flow(authority=config["B2C_RESET_PASSWORD_AUTHORITY"])["auth_uri"]}}'>Reset Password</a></li>
+{% endif %} -->
+
+{% endblock content %}

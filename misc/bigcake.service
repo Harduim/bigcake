@@ -1,0 +1,19 @@
+[Unit]
+Description=bigcake daemon
+Requires=bigcake.socket
+After=network.target
+
+[Service]
+Type=notify
+User=bolao
+Group=bolao
+RuntimeDirectory=gunicorn
+WorkingDirectory=/home/bolao/bigcake
+ExecStart=/home/bolao/.local/bin/gunicorn --chdir /home/bolao/bigcake/ --bind 127.0.0.1:5000 bigcake:app
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

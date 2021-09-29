@@ -1,0 +1,43 @@
+<div id="modalidade_{{ mod.modalidade_id }}"
+  class="card-wrapper shadow-sm card rounded-0 border-top-0 border-start-0 border-end-0 {% if podio %}border-success{% endif %} my-2">
+  <div class="card-body">
+    <h5 class="card-title">
+      <img alt="Icone da modalidade" style="width: 1.5rem; height: 1.5rem;"
+        src="{{ url_for('static', filename='sports_icons/'+cat.cat_icon_url) }}">
+      {{ mod.modalidade_nome.split(" - ")[1] }}
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted" style="white-space: nowrap;">
+      {{ mod.modalidade_nome.split(" - ")[2] }}{% if podio %}&nbsp;
+      <img alt="Icone OK" style="width: 1rem; height: 1rem;" src="{{ url_for('static', filename='ok.png') }}">
+      {% endif %}
+    </h6>
+    {% if podio %}
+    <spam class="text-primary" style="white-space: nowrap;">Você escolheu:<br></spam>
+      <div class="text-primary" style="white-space: nowrap;">
+        Ouro:&nbsp;<strong>{{ podio.pais_ouro }}</strong>
+      </div>
+      <div class="text-primary" style="white-space: nowrap;">Prata:&nbsp;<strong>{{ podio.pais_prata }}</strong></div>
+      <div class="text-primary" style="white-space: nowrap;">Bronze:&nbsp;<strong>{{ podio.pais_bronze }}</strong></div>
+      {% else %}
+      <div class="text-secondary" style="white-space: nowrap;"><br>Faça sua escolha até o dia:<br>
+        <div style="white-space: nowrap;"><strong>{{ mod.desabilita_palpite }}</strong></div>
+        <br>
+      </div>
+      {% endif %}
+      {% if mod.desabilita_palpite >= today%}
+
+      {% include "podio_form.html" ignore missing with context %}
+
+      {% else %}
+      <div>
+        <spam style="white-space: nowrap;">Resultado:<br>
+          <div style="white-space: nowrap;">
+            Ouro:&nbsp;<strong>{{ paises[mod.pais_ouro] }}</strong>
+          </div>
+          <div style="white-space: nowrap;">Prata:&nbsp;<strong>{{ paises[mod.pais_prata] }}</strong></div>
+          <div style="white-space: nowrap;">Bronze:&nbsp;<strong>{{ paises[mod.pais_bronze] }}</strong></div>
+      </div>
+      {% endif %}
+
+  </div> <!-- Card-body-->
+</div> <!-- Card -->

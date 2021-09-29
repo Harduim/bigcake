@@ -1,0 +1,22 @@
+<form method="POST" onsubmit="submitForm(event, {{ mod.modalidade_id }})">
+    {{ form.csrf_token() }}
+    <div>
+        <div class="row d-flex justify-content-center">
+            <div class="form-group rounded-0 col-12 my-1 form-floating">
+                {{ form.pais_ouro }}
+                <label for="pais_ouro">&nbsp;{{ form.pais_ouro.label }}</label>
+            </div>
+            <div class="form-group rounded-0 col-12 my-1 form-floating">
+                {{ form.pais_prata }}
+                <label for="pais_prata">&nbsp;{{ form.pais_prata.label }}</label>
+            </div>
+            <div class="form-group rounded-0 col-12 my-1 form-floating">
+                {{ form.pais_bronze }}
+                <label for="pais_bronze">&nbsp;{{ form.pais_bronze.label }}</label>
+            </div>
+            <div class="col-lg-1" style="display: flex; align-items: center; justify-content: center;">
+                <button type="submit" class="btn btn-primary" style="vertical-align: middle!important;">Enviar</button>
+            </div>
+        </div>
+    </div>
+</form> <!-- Form -->

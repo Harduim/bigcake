@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
+  <h2 class="h6 pt-4 pb-3 mb-4 border-bottom my-1">Modalidades</h2>
+  <nav class="small" id="toc">
+    <ul class="list-unstyled">
+      {% for cat in categorias %}
+      <li>
+        <a class="d-inline-flex align-items-center rounded" href="#categoria_{{ cat.cat_id }}">{{ cat.cat_nome }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</aside>
+
+<div class="bd-modalidade container-fluid">
+
+  {% for cat in categorias %}
+  <section id="categoria_{{ cat.cat_id }}">
+    <h2 class="sticky-xl-top fw-bold pt-3 pt-xl-5 pb-2 pb-xl-3" style="white-space: nowrap;">
+      <img alt="Icone da modalidade" style="width: 3rem; height: 3rem;"
+      src="{{ url_for('static', filename='sports_icons/'+cat.cat_icon_url) }}">
+      {{ cat.cat_nome }}
+    </h2>
+
+    <article class="my-3" id="article_categoria_{{ cat.cat_id }}">
+      <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">&nbsp;
+      </div>
+
+      <div class="row my-4">
+        {% for mod in modalidades %}
+        {% if mod.mod_cat_id == cat.cat_id %}
+        {% set podio = palpites.get(mod.modalidade_id, 0) %}
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 my-1">
+            {% include "podio_card.html" ignore missing with context %}
+        </div> <!-- Col -->
+        {% endif %}
+        {% endfor %}
+      <hr>
+      </div> <!-- Row -->
+
+
+    </article>
+  </section>
+  {% endfor %}
+
+</div>
+{% include "jquery.html" ignore missing with context %}
+{% endblock content %}
