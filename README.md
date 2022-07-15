@@ -16,6 +16,14 @@ Site para organização de bolões esportivos
  ```
 - Atualizar a lista de países participantes em [paises.json](config/paises.json)
 - Atualizar a data de realização dos eventos em [modalidades.json](config/modalidades.json)
+- Criar o ambiente conda
+```
+conda env create -f environment.yml
+```
+- Ativar o ambiente conda
+```
+conda activate bigcake
+```
 - Inicializar o banco de dados
  ```python
 from bigcake.db import init_db, reset_db
