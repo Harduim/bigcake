@@ -16,4 +16,5 @@ dependencies:
     - "msal>=1.7"
     - beautifulsoup4
     - unidecode
-    - flask-wtf
+    - WTForms==2.3.3
+    - flask-wtf==0.15.0
