@@ -5,7 +5,9 @@ from flask_wtf import FlaskForm
 from wtforms import SelectField, TextField
 from wtforms.validators import DataRequired, Length
 
-from . import app, msal
+import msal
+
+from . import app
 from .db import (
     add_palpite,
     add_resultado,
