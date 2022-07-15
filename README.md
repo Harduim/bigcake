@@ -23,6 +23,10 @@ from bigcake.db import init_db, reset_db
 init_db()
 reset_db()
  ```
+- Iniciar o servidor web:
+```shell
+gunicorn --bind 127.0.0.1:3000 bigcake:app
+```
 
 ## TODO
 - Documentação
